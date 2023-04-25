@@ -1,2 +1,2 @@
-export const API = "https://amazon-node.herokuapp.com/api";
-//export const API = "http://localhost:5000/api";
+export const API = "https://amazone-react-backend.vercel.app/api";
+// export const API = "http://localhost:5000/api";

@@ -75,7 +75,7 @@ const Product = ({ product, key }) => {
             e.stopPropagation();
             history.push('/cart')
           }} className="button mt-auto w-60 text-center mx-auto">
-            Go to Card
+            Go to Cart
           </div>
         )}
       </div>
