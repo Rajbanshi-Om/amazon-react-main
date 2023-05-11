@@ -19,6 +19,7 @@ function Home() {
     loadProductsForHomepage()
       .then((res) => {
         if (res.products) {
+          console.log("res" ,res.products)
           setProducts(res.products);
         }
       })

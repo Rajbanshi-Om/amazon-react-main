@@ -24,16 +24,19 @@ const computeTotalPrice = (productArray, productCounts) => {
 
 const persistCart = async (state) => {
   if(localStorage.getItem("jwt") !== undefined){
-    const token = JSON.parse(localStorage.getItem("jwt")).token;
+    const token = localStorage.getItem("jwt") ? JSON.parse(localStorage.getItem("jwt")).token : '';
     const products = JSON.stringify(state.products);
     const productCounts = JSON.stringify(state.productCounts);
     const totalPrice = state.totalPrice;
   
-    const oldUser = JSON.parse(localStorage.getItem("jwt"));
-    oldUser.user.products= products;
-    oldUser.user.productCounts = productCounts;
-    oldUser.user.totalPrice = totalPrice;
-    localStorage.setItem("jwt", JSON.stringify(oldUser));
+    const oldUser = localStorage.getItem("jwt") ? JSON.parse(localStorage.getItem("jwt")) : "";
+    if (oldUser !== "") {
+      
+      oldUser.user.products= products;
+      oldUser.user.productCounts = productCounts;
+      oldUser.user.totalPrice = totalPrice;
+      localStorage.setItem("jwt", JSON.stringify(oldUser));
+    }
 
 
     const body= {

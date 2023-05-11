@@ -4,8 +4,10 @@ import banner1 from '../images/b1.jpg'
 const ProductFeed = ({ products, isHome }) => {
   return (
     <div className={`grid grid-flow-row-dense md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ${isHome && 'md:-mt-32'} mx-auto`}>
-      {products.slice(0, 4).map((product) => (
-        <Product key={product.id} product={product}></Product>
+      {products.slice(0, 4).map((product, index) => (
+        product != null && (
+          <Product key={product._id + index} product={product}></Product>
+         )
       ))}
 
       <img
@@ -14,12 +16,16 @@ const ProductFeed = ({ products, isHome }) => {
         alt=""
       />
       <div className="md:col-span-2 ">
-        {products.slice(4, 5).map((product) => (
-          <Product key={product.id} product={product}></Product>
+        {products.slice(4, 5).map((product, index) => (
+              product != null && (
+            <Product key={product._id + index} product={product}></Product>
+          )
         ))}
       </div>
-      {products.slice(5).map((product) => (
-        <Product key={product.id} product={product}></Product>
+      {products.slice(5).map((product, index) => (
+        product != null && (
+          <Product key={ product._id + index} product={product}></Product>
+            )
       ))}
     </div>
   );
